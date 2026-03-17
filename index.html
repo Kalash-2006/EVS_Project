@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digital Animal Carcass Management System</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- ============================================================
+       GOOGLE ANALYTICS — Paste your GA4 tracking code here
+       <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+       <script>
+         window.dataLayer = window.dataLayer || [];
+         function gtag(){dataLayer.push(arguments);}
+         gtag('js', new Date());
+         gtag('config', 'G-XXXXXXXXXX');
+       </script>
+  ============================================================ -->
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+        <span class="brand-leaf"><i class="bi bi-leaf-fill"></i></span>
+        <span class="brand-text">EcoDispose</span>
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto gap-1">
+          <li class="nav-item"><a class="nav-link active" href="index.html"><i class="bi bi-house-fill me-1"></i>Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="find_agency.html"><i class="bi bi-search me-1"></i>Find Agency</a></li>
+          <li class="nav-item"><a class="nav-link" href="awareness.html"><i class="bi bi-globe2 me-1"></i>Awareness</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== HERO BANNER ===== -->
+  <section class="hero-section d-flex align-items-center">
+    <div class="hero-overlay"></div>
+    <!--
+    ================================================================
+    HERO BACKGROUND IMAGE
+    In style.css under .hero-section, replace the gradient with:
+      background: url('images/hero-bg.jpg') center/cover no-repeat;
+    Recommended: nature/forest/green field (1920×1080px)
+    ================================================================
+    -->
+    <div class="container position-relative z-1 py-5">
+      <div class="row align-items-center">
+        <div class="col-lg-7">
+          <span class="badge hero-badge mb-3"><i class="bi bi-recycle me-1"></i>Environmental Studies Project</span>
+          <h1 class="hero-title">Digital Animal<br/><span class="text-accent">Carcass Management</span><br/>System</h1>
+          <p class="hero-subtitle mt-4">A citizen-first platform to locate government agencies for safe, eco-friendly disposal of dead animals — turning waste into life-giving organic fertilizer.</p>
+          <div class="d-flex flex-wrap gap-3 mt-4">
+            <a href="find_agency.html" class="btn btn-primary-custom btn-lg px-4">
+              <i class="bi bi-geo-alt-fill me-2"></i>Find Nearby Agency
+            </a>
+            <a href="awareness.html" class="btn btn-outline-custom btn-lg px-4">
+              <i class="bi bi-book-fill me-2"></i>Learn More
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-5 d-none d-lg-flex justify-content-center mt-5 mt-lg-0">
+          <!--
+          ================================================================
+          HERO ILLUSTRATION IMAGE
+          Replace the placeholder div below with:
+            <img src="images/hero-illustration.png" alt="Eco Illustration" class="img-fluid hero-img" />
+          Recommended: ecology/nature illustration, PNG transparent (500×500px)
+          ================================================================
+          -->  
+          <div class="position-relative d-inline-block">
+    <img src="images/hero-illustration.png" 
+         alt="Eco Illustration" 
+         style="
+           width: 380px; 
+           height: 380px; 
+           object-fit: cover; 
+           border-radius: 50%; 
+           border: 4px solid rgba(255,255,255,0.3);
+           box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+           filter: brightness(0.85);
+         " />
+    <!-- Light green overlay circle -->
+    <div style="
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: rgba(46,125,50,0.25);
+      pointer-events: none;
+    "></div>
+      </div>        
+          
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STATS STRIP ===== -->
+  <section class="stats-strip py-3">
+    <div class="container">
+      <div class="row text-center g-3">
+        <div class="col-6 col-md-3"><div class="stat-item"><span class="stat-number">500+</span><span class="stat-label">Registered Agencies</span></div></div>
+        <div class="col-6 col-md-3"><div class="stat-item"><span class="stat-number">12K+</span><span class="stat-label">Cases Handled</span></div></div>
+        <div class="col-6 col-md-3"><div class="stat-item"><span class="stat-number">98%</span><span class="stat-label">Safe Disposal Rate</span></div></div>
+        <div class="col-6 col-md-3"><div class="stat-item"><span class="stat-number">30+</span><span class="stat-label">Districts Covered</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== INTRODUCTION ===== -->
+  <section class="py-6">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+          <span class="section-tag">About This Initiative</span>
+          <h2 class="section-heading mt-2">What Is This System?</h2>
+          <p class="section-body mt-3">
+            The <strong>Digital Animal Carcass Management System</strong> is a government-backed environmental initiative that empowers citizens to report, locate, and coordinate the hygienic disposal of animal carcasses. Improper disposal leads to the spread of disease, pollution of water bodies, and ecological damage. Our platform bridges the gap between citizens and municipal agencies — making the process fast, transparent, and eco-friendly.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROBLEM SECTION ===== -->
+  <section class="problem-section py-6 bg-light-green">
+  <div class="container">
+    <div class="row align-items-center g-5">
+
+      <!-- LEFT SIDE — Picture -->
+      <div class="col-lg-6 col-md-6">
+        <img src="images/problem-image.jpg"
+             alt="Dead Animal Problem"
+             class="img-fluid rounded-custom shadow-lg w-100"
+             style="
+               max-height: 420px;
+               object-fit: cover;
+               border-radius: 14px;
+             " />
+      </div>
+
+      <!-- RIGHT SIDE — Text -->
+      <div class="col-lg-6 col-md-6">
+        <span class="section-tag">The Problem</span>
+        <h2 class="section-heading mt-2">Dead Animals — A Silent Environmental Crisis</h2>
+        <p class="section-body mt-3">Thousands of animal carcasses are left unattended every year, creating serious public health hazards:</p>
+        <ul class="problem-list mt-3">
+          <li><i class="bi bi-x-circle-fill text-danger me-2"></i>Spread of dangerous pathogens and zoonotic diseases</li>
+          <li><i class="bi bi-x-circle-fill text-danger me-2"></i>Contamination of groundwater and rivers</li>
+          <li><i class="bi bi-x-circle-fill text-danger me-2"></i>Foul odours and attraction of scavengers</li>
+          <li><i class="bi bi-x-circle-fill text-danger me-2"></i>Soil degradation and loss of biodiversity</li>
+          <li><i class="bi bi-x-circle-fill text-danger me-2"></i>Lack of awareness about proper reporting channels</li>
+        </ul>
+        <a href="find_agency.html" class="btn btn-primary-custom mt-4 px-4">
+          <i class="bi bi-geo-alt-fill me-2"></i>Find Nearby Agency
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  <!-- ===== ENVIRONMENTAL IMPACT — 3 CARDS ===== -->
+  <section class="impact-section py-6">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="section-tag">Why It Matters</span>
+        <h2 class="section-heading mt-2">Environmental Impact</h2>
+        <p class="section-body mt-2 mx-auto" style="max-width:600px;">Understanding the consequences drives better action. Here's how improper disposal affects us.</p>
+      </div>
+      <div class="row g-4">
+
+        <!-- Card 1 -->
+        <div class="col-md-4">
+          <div class="impact-card card h-100 border-0 shadow-sm text-center p-4">
+            <!--
+            ================================================================
+            CARD 1 IMAGE (optional icon/illustration 100×100px)
+            <img src="images/water-pollution.png" alt="Water Pollution" class="mb-3" style="height:80px;" />
+            ================================================================
+            -->
+            <div class="impact-icon-wrap mb-3 mx-auto"><i class="bi bi-droplet-fill impact-icon text-danger"></i></div>
+            <h5 class="card-title-custom">Water Contamination</h5>
+            <p class="card-text-custom">Decomposing carcasses leach pathogens and nitrates into soil and water sources, rendering them unfit for use.</p>
+            <div class="impact-badge badge-danger-soft">High Risk</div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="col-md-4">
+          <div class="impact-card card h-100 border-0 shadow-sm text-center p-4 card-featured">
+            <!--
+            ================================================================
+            CARD 2 IMAGE (optional icon/illustration 100×100px)
+            <img src="images/disease-spread.png" alt="Disease" class="mb-3" style="height:80px;" />
+            ================================================================
+            -->
+            <div class="impact-icon-wrap mb-3 mx-auto"><i class="bi bi-virus2 impact-icon text-warning"></i></div>
+            <h5 class="card-title-custom">Disease Spread</h5>
+            <p class="card-text-custom">Rotting carcasses become breeding grounds for bacteria and insects that transmit diseases to humans and livestock.</p>
+            <div class="impact-badge badge-warning-soft">Critical Concern</div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="col-md-4">
+          <div class="impact-card card h-100 border-0 shadow-sm text-center p-4">
+            <!--
+            ================================================================
+            CARD 3 IMAGE (optional icon/illustration 100×100px)
+            <img src="images/organic-solution.png" alt="Solution" class="mb-3" style="height:80px;" />
+            ================================================================
+            -->
+            <div class="impact-icon-wrap mb-3 mx-auto"><i class="bi bi-recycle impact-icon text-success"></i></div>
+            <h5 class="card-title-custom">Organic Opportunity</h5>
+            <p class="card-text-custom">Managed composting of animal carcasses produces nutrient-rich organic fertilizer for sustainable agriculture.</p>
+            <div class="impact-badge badge-success-soft">Solution Available</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOW IT WORKS ===== -->
+  <section class="how-section py-6 bg-light-green">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="section-tag">Simple Steps</span>
+        <h2 class="section-heading mt-2">How It Works</h2>
+      </div>
+      <div class="row g-4 justify-content-center">
+        <div class="col-sm-6 col-lg-3 text-center">
+          <div class="how-step"><div class="step-num">1</div><i class="bi bi-phone-fill step-icon"></i><h6 class="step-title">Report</h6><p class="step-desc">Citizen spots a dead animal and visits our portal or calls a helpline.</p></div>
+        </div>
+        <div class="col-sm-6 col-lg-3 text-center">
+          <div class="how-step"><div class="step-num">2</div><i class="bi bi-search step-icon"></i><h6 class="step-title">Find Agency</h6><p class="step-desc">Use the Find Agency page to locate the nearest government authority.</p></div>
+        </div>
+        <div class="col-sm-6 col-lg-3 text-center">
+          <div class="how-step"><div class="step-num">3</div><i class="bi bi-truck step-icon"></i><h6 class="step-title">Dispatch</h6><p class="step-desc">Agency team is dispatched for hygienic collection and transport.</p></div>
+        </div>
+        <div class="col-sm-6 col-lg-3 text-center">
+          <div class="how-step"><div class="step-num">4</div><i class="bi bi-flower1 step-icon"></i><h6 class="step-title">Convert</h6><p class="step-desc">Carcass is composted into organic fertilizer for use in farming.</p></div>
+        </div>
+      </div>
+      <div class="text-center mt-5">
+        <a href="find_agency.html" class="btn btn-primary-custom btn-lg px-5">
+          <i class="bi bi-geo-alt-fill me-2"></i>Find Nearby Agency Now
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer py-5">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <div class="d-flex align-items-center gap-2 mb-3">
+            <span class="brand-leaf"><i class="bi bi-leaf-fill"></i></span>
+            <span class="brand-text text-white fs-5 fw-bold">EcoDispose</span>
+          </div>
+          <p class="footer-desc">A Digital Animal Carcass Management System — bridging citizens and government agencies for a cleaner environment.</p>
+        </div>
+        <div class="col-lg-2 col-6">
+          <h6 class="footer-heading">Pages</h6>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="find_agency.html">Find Agency</a></li>
+            <li><a href="awareness.html">Awareness</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-6">
+          <h6 class="footer-heading">Quick Links</h6>
+          <ul class="footer-links">
+            <li><a href="#">Report Dead Animal</a></li>
+            <li><a href="#">Helpline: 1800-XXX-XXXX</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3">
+          <h6 class="footer-heading">Connect</h6>
+          <div class="d-flex gap-3 mt-2">
+            <a href="#" class="footer-social"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="footer-social"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" class="footer-social"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="footer-social"><i class="bi bi-youtube"></i></a>
+          </div>
+          <p class="footer-desc mt-3">Environmental Studies Dept.<br/>College Project — 2024–25</p>
+        </div>
+      </div>
+      <hr class="footer-divider mt-4 mb-3" />
+      <p class="footer-copy text-center mb-0">© 2025 Digital Animal Carcass Management System | Environmental Studies Project</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

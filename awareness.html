@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Awareness | Digital Animal Carcass Management System</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- ============================================================
+       GOOGLE ANALYTICS — Paste GA4 tracking code here
+  ============================================================ -->
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+        <span class="brand-leaf"><i class="bi bi-leaf-fill"></i></span>
+        <span class="brand-text">EcoDispose</span>
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto gap-1">
+          <li class="nav-item"><a class="nav-link" href="index.html"><i class="bi bi-house-fill me-1"></i>Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="find_agency.html"><i class="bi bi-search me-1"></i>Find Agency</a></li>
+          <li class="nav-item"><a class="nav-link active" href="awareness.html"><i class="bi bi-globe2 me-1"></i>Awareness</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== PAGE HERO ===== -->
+  <section class="page-hero awareness-hero d-flex align-items-center">
+    <div class="hero-overlay"></div>
+    <div class="container position-relative z-1 text-center py-5">
+      <span class="badge hero-badge mb-3"><i class="bi bi-globe2 me-1"></i>Environmental Education</span>
+      <h1 class="page-hero-title">Environmental Awareness</h1>
+      <p class="page-hero-subtitle mx-auto">Understanding decomposition ecology, the science of composting, and how animal waste becomes life-giving fertilizer for our soil.</p>
+    </div>
+  </section>
+
+  <!-- ===== AWARENESS INTRO ===== -->
+  <section class="py-6">
+    <div class="container">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-6">
+          <span class="section-tag">Why Awareness Matters</span>
+          <h2 class="section-heading mt-2">The Invisible Threat Around Us</h2>
+          <p class="section-body mt-3">Most citizens are unaware of the environmental and public health risks posed by unmanaged animal carcasses. Awareness is the first step toward action. When we understand the problem, we can respond correctly — and turn a hazard into an agricultural opportunity.</p>
+          <div class="mt-4">
+            <div class="d-flex align-items-start gap-3 mb-3">
+              <i class="bi bi-exclamation-circle-fill text-danger mt-1 fs-5"></i>
+              <div><strong>Over 5 million</strong> stray animals die on Indian roads annually, most left unattended.</div>
+            </div>
+            <div class="d-flex align-items-start gap-3 mb-3">
+              <i class="bi bi-droplet-fill text-primary mt-1 fs-5"></i>
+              <div><strong>Groundwater contamination</strong> from decomposing bodies can persist for years in soil.</div>
+            </div>
+            <div class="d-flex align-items-start gap-3">
+              <i class="bi bi-recycle text-success mt-1 fs-5"></i>
+              <div><strong>1 tonne of animal biomass</strong> can produce up to 300 kg of high-quality organic compost.</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <!--
+          ================================================================
+          AWARENESS INTRO IMAGE
+          Replace this placeholder with:
+            <img src="images/awareness-intro.jpg" alt="Environmental Awareness" class="img-fluid rounded-custom shadow-lg" />
+          Recommended: awareness campaign or environment photo (600×420px)
+          ================================================================
+          -->
+            <img src="images/awareness-intro.jpg" 
+            alt="Environmental Awareness" 
+            class="img-fluid rounded-custom shadow-lg" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DANGERS ===== -->
+  <section class="py-6 bg-light-green">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="section-tag">Health & Ecology</span>
+        <h2 class="section-heading mt-2">Dangers of Improper Disposal</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3">
+          <div class="danger-card text-center p-4 h-100">
+            <i class="bi bi-lungs-fill danger-icon text-danger"></i>
+            <h6 class="danger-title mt-3">Air Pollution</h6>
+            <p class="danger-desc">Rotting carcasses release toxic gases like hydrogen sulfide and ammonia, causing respiratory illness in nearby communities.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="danger-card text-center p-4 h-100">
+            <i class="bi bi-bug-fill danger-icon text-warning"></i>
+            <h6 class="danger-title mt-3">Vector Breeding</h6>
+            <p class="danger-desc">Decomposing bodies attract flies, rats and mosquitoes — vectors for deadly diseases like cholera, anthrax and leptospirosis.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="danger-card text-center p-4 h-100">
+            <i class="bi bi-water danger-icon text-info"></i>
+            <h6 class="danger-title mt-3">Water Pollution</h6>
+            <p class="danger-desc">Leachates from carcasses seep into rivers and aquifers, contaminating water sources and affecting aquatic biodiversity.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="danger-card text-center p-4 h-100">
+            <i class="bi bi-graph-down-arrow danger-icon text-success"></i>
+            <h6 class="danger-title mt-3">Soil Degradation</h6>
+            <p class="danger-desc">Uncontrolled decomposition changes soil pH and nitrogen levels, damaging agricultural land and reducing crop yields.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WASTE TO FERTILIZER ===== -->
+  <section class="py-6">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="section-tag">The Solution</span>
+      <h2 class="section-heading mt-2">Waste to Fertilizer</h2>
+      <p class="section-body mx-auto mt-2" style="max-width:620px;">Through scientifically managed composting, animal carcasses can be safely converted into nutrient-rich organic fertilizer — benefiting farmers and the ecosystem simultaneously.</p>
+    </div>
+
+    <div class="row g-5 align-items-center">
+
+      <!-- LEFT SIDE — Diagram Image -->
+      <div class="col-lg-5 col-md-5 text-center">
+        <img src="images/compost-cycle.png"
+             alt="Compost Cycle Diagram"
+             class="img-fluid shadow-lg"
+             style="
+               max-width: 380px;
+               width: 100%;
+               border-radius: 50%;
+               object-fit: cover;
+               border: 4px solid rgba(76,175,80,0.3);
+               box-shadow: 0 8px 32px rgba(46,125,50,0.2);
+             " />
+        <p class="text-muted small mt-3">
+          <em>Animal Carcass → Decomposition → Compost → Fertilizer → Farming</em>
+        </p>
+      </div>
+
+      <!-- RIGHT SIDE — Steps Text -->
+      <div class="col-lg-7 col-md-7">
+        <h4 class="section-heading-sm">The Composting Process — Step by Step</h4>
+        <div class="mt-4">
+
+          <div class="compost-step d-flex gap-3 mb-4">
+            <div class="compost-step-num">1</div>
+            <div>
+              <h6 class="compost-step-title">Collection & Transport</h6>
+              <p class="compost-step-desc">Trained municipal workers collect carcasses using protective gear and sealed vehicles to prevent contamination during transport to processing facilities.</p>
+            </div>
+          </div>
+
+          <div class="compost-step d-flex gap-3 mb-4">
+            <div class="compost-step-num">2</div>
+            <div>
+              <h6 class="compost-step-title">Initial Treatment</h6>
+              <p class="compost-step-desc">Carcasses are treated with lime to reduce odour and pathogen load, then placed in compost windrows or biodigester units.</p>
+            </div>
+          </div>
+
+          <div class="compost-step d-flex gap-3 mb-4">
+            <div class="compost-step-num">3</div>
+            <div>
+              <h6 class="compost-step-title">Aerobic Decomposition</h6>
+              <p class="compost-step-desc">Microbes break down organic matter over 4–8 weeks in controlled compost beds with regular aeration and moisture management.</p>
+            </div>
+          </div>
+
+          <div class="compost-step d-flex gap-3 mb-4">
+            <div class="compost-step-num">4</div>
+            <div>
+              <h6 class="compost-step-title">Maturation & Curing</h6>
+              <p class="compost-step-desc">Partially composted material is cured for another 4 weeks, stabilising nutrients and eliminating remaining pathogens completely.</p>
+            </div>
+          </div>
+
+          <div class="compost-step d-flex gap-3">
+            <div class="compost-step-num">5</div>
+            <div>
+              <h6 class="compost-step-title">Fertilizer Distribution</h6>
+              <p class="compost-step-desc">The final product — rich in nitrogen, phosphorus and potassium — is packaged and distributed to farmers, completing the ecological cycle.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  <!-- ===== BENEFITS ===== -->
+  <section class="py-6 bg-light-green">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="section-tag">Benefits</span>
+        <h2 class="section-heading mt-2">Benefits of Managed Composting</h2>
+      </div>
+      <div class="row g-4 align-items-center">
+        <div class="col-md-5">
+          <!--
+          ================================================================
+          BENEFITS / ORGANIC FARMING IMAGE
+          Replace this placeholder with:
+            <img src="images/organic-farming.jpg" alt="Organic Farming" class="img-fluid rounded-custom shadow" />
+          Recommended: farmer, green field, organic crops (580×380px)
+          ================================================================
+          -->
+          <img src="images/organic-farming.jpg" 
+            alt="Organic Farming" 
+            class="img-fluid rounded-custom shadow" />
+        </div>
+        <div class="col-md-7">
+          <div class="d-flex align-items-start gap-3 mb-3">
+            <i class="bi bi-check-circle-fill benefit-check mt-1"></i>
+            <div><strong>Zero Landfill Waste:</strong> Converts 100% of organic matter into useful compost instead of filling landfills.</div>
+          </div>
+          <div class="d-flex align-items-start gap-3 mb-3">
+            <i class="bi bi-check-circle-fill benefit-check mt-1"></i>
+            <div><strong>Pathogen Elimination:</strong> High-temperature composting destroys dangerous bacteria, viruses and parasites.</div>
+          </div>
+          <div class="d-flex align-items-start gap-3 mb-3">
+            <i class="bi bi-check-circle-fill benefit-check mt-1"></i>
+            <div><strong>Improved Soil Health:</strong> Organic fertilizer improves soil structure, moisture retention and microbial diversity.</div>
+          </div>
+          <div class="d-flex align-items-start gap-3 mb-3">
+            <i class="bi bi-check-circle-fill benefit-check mt-1"></i>
+            <div><strong>Reduced Chemical Use:</strong> Farmers using compost reduce dependence on chemical fertilizers by 40–60%.</div>
+          </div>
+          <div class="d-flex align-items-start gap-3 mb-3">
+            <i class="bi bi-check-circle-fill benefit-check mt-1"></i>
+            <div><strong>Carbon Sequestration:</strong> Compost locks carbon into the soil, helping mitigate climate change.</div>
+          </div>
+          <div class="d-flex align-items-start gap-3">
+            <i class="bi bi-check-circle-fill benefit-check mt-1"></i>
+            <div><strong>Economic Value:</strong> Compost generated can be sold to farmers, creating revenue for municipalities.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DO'S AND DON'TS ===== -->
+  <section class="py-6">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="section-tag">Citizen Guide</span>
+        <h2 class="section-heading mt-2">Do's and Don'ts</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="dos-card card border-0 p-4 h-100">
+            <h5 class="dos-title mb-4"><i class="bi bi-check2-all text-success me-2"></i>Do's</h5>
+            <ul class="dos-list">
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Immediately report any dead animal to the nearest agency.</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Note the exact location, landmark and animal type before calling.</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Keep children and pets away from the area.</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Spread awareness to neighbours and community members.</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Use this website to find the correct agency quickly.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="donts-card card border-0 p-4 h-100">
+            <h5 class="donts-title mb-4"><i class="bi bi-x-circle-fill text-danger me-2"></i>Don'ts</h5>
+            <ul class="dos-list">
+              <li><i class="bi bi-x-circle-fill text-danger me-2"></i>Never touch a carcass with bare hands — always use gloves.</li>
+              <li><i class="bi bi-x-circle-fill text-danger me-2"></i>Do not throw dead animals in rivers, wells or open fields.</li>
+              <li><i class="bi bi-x-circle-fill text-danger me-2"></i>Do not burn carcasses as this releases toxic gases.</li>
+              <li><i class="bi bi-x-circle-fill text-danger me-2"></i>Do not bury carcasses near water sources or croplands.</li>
+              <li><i class="bi bi-x-circle-fill text-danger me-2"></i>Never ignore the problem — delayed action worsens health risks.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+ 
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer py-5">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <div class="d-flex align-items-center gap-2 mb-3">
+            <span class="brand-leaf"><i class="bi bi-leaf-fill"></i></span>
+            <span class="brand-text text-white fs-5 fw-bold">EcoDispose</span>
+          </div>
+          <p class="footer-desc">Bridging citizens and government agencies for a cleaner, healthier environment.</p>
+        </div>
+        <div class="col-lg-2 col-6">
+          <h6 class="footer-heading">Pages</h6>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="find_agency.html">Find Agency</a></li>
+            <li><a href="awareness.html">Awareness</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-6">
+          <h6 class="footer-heading">Quick Links</h6>
+          <ul class="footer-links">
+            <li><a href="#">Report Dead Animal</a></li>
+            <li><a href="#">Helpline: 1800-XXX-XXXX</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3">
+          <h6 class="footer-heading">Connect</h6>
+          <div class="d-flex gap-3 mt-2">
+            <a href="#" class="footer-social"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="footer-social"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" class="footer-social"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="footer-social"><i class="bi bi-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      <hr class="footer-divider mt-4 mb-3" />
+      <p class="footer-copy text-center mb-0">© 2025 Digital Animal Carcass Management System | Environmental Studies Project</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

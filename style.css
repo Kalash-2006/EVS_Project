@@ -1,0 +1,905 @@
+/* ============================================================
+   style.css — Digital Animal Carcass Management System
+   Theme: Green, White, Light Gray
+   Fonts: Playfair Display (headings) + DM Sans (body)
+============================================================ */
+
+/* ---------- CSS VARIABLES ---------- */
+:root {
+  --green-dark:    #1b5e20;
+  --green-main:    #2e7d32;
+  --green-mid:     #388e3c;
+  --green-light:   #4caf50;
+  --green-pale:    #e8f5e9;
+  --green-accent:  #81c784;
+  --white:         #ffffff;
+  --gray-light:    #f5f7f5;
+  --gray-mid:      #e0e0e0;
+  --gray-text:     #555f55;
+  --text-dark:     #1a2e1a;
+  --shadow-sm:     0 2px 12px rgba(46,125,50,0.08);
+  --shadow-md:     0 6px 28px rgba(46,125,50,0.13);
+  --radius:        14px;
+  --radius-sm:     8px;
+}
+
+/* ---------- BASE ---------- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--text-dark);
+  background: var(--white);
+  line-height: 1.7;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Playfair Display', serif;
+}
+
+.py-6 { padding-top: 5rem; padding-bottom: 5rem; }
+
+/* ---------- SCROLLBAR ---------- */
+::-webkit-scrollbar { width: 7px; }
+::-webkit-scrollbar-track { background: var(--green-pale); }
+::-webkit-scrollbar-thumb { background: var(--green-light); border-radius: 10px; }
+
+/* ============================================================
+   NAVBAR
+============================================================ */
+#mainNav {
+  background: var(--green-dark);
+  box-shadow: 0 2px 16px rgba(0,0,0,0.18);
+  padding: 0.75rem 0;
+  transition: background 0.3s;
+}
+
+.brand-leaf {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px; height: 34px;
+  background: var(--green-light);
+  border-radius: 50%;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.brand-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.5px;
+}
+
+.navbar-nav .nav-link {
+  color: rgba(255,255,255,0.85) !important;
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
+  transition: all 0.2s;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  background: rgba(255,255,255,0.12);
+  color: #fff !important;
+}
+
+/* ============================================================
+   HERO SECTION
+============================================================ */
+.hero-section {
+  min-height: 92vh;
+  position: relative;
+  /* ============================================================
+     HERO BACKGROUND IMAGE
+     To use a real image, replace the gradient below with:
+     background: url('images/hero-bg.jpg') center/cover no-repeat;
+  ============================================================ */
+  background:  url('images/hero-bg.jpg') center/cover no-repeat; 
+  overflow: hidden;
+}
+
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  pointer-events: none;
+}
+
+.hero-badge {
+  background: rgba(255,255,255,0.18);
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 0.45rem 1rem;
+  border-radius: 50px;
+  border: 1px solid rgba(255,255,255,0.25);
+  backdrop-filter: blur(4px);
+}
+
+.hero-title {
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  color: #fff;
+  line-height: 1.2;
+  font-weight: 800;
+}
+
+.text-accent { color: var(--green-accent); }
+
+.hero-subtitle {
+  color: rgba(255,255,255,0.82);
+  font-size: 1.1rem;
+  max-width: 540px;
+  line-height: 1.8;
+}
+
+.hero-img-placeholder {
+  width: 340px; height: 340px;
+  border: 2px dashed rgba(255,255,255,0.25);
+  border-radius: 50%;
+  background: rgba(255,255,255,0.05);
+  color: rgba(255,255,255,0.4);
+  text-align: center;
+}
+
+.hero-placeholder-icon { font-size: 5rem; opacity: 0.4; }
+
+/* ---------- PAGE HERO (inner pages) ---------- */
+.page-hero {
+  min-height: 38vh;
+  background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 60%, #43a047 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.awareness-hero {
+  background: linear-gradient(135deg, #1a3a1f 0%, #2e7d32 50%, #558b2f 100%);
+}
+
+.page-hero-title {
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  color: #fff;
+  font-weight: 800;
+}
+
+.page-hero-subtitle {
+  color: rgba(255,255,255,0.82);
+  font-size: 1.05rem;
+  max-width: 580px;
+  line-height: 1.8;
+}
+
+/* ============================================================
+   BUTTONS
+============================================================ */
+.btn-primary-custom {
+  background: var(--green-light);
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.65rem 1.8rem;
+  transition: all 0.25s;
+  box-shadow: 0 4px 14px rgba(76,175,80,0.35);
+}
+
+.btn-primary-custom:hover {
+  background: var(--green-mid);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(76,175,80,0.45);
+}
+
+.btn-outline-custom {
+  background: transparent;
+  color: #fff;
+  border: 2px solid rgba(255,255,255,0.55);
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.65rem 1.8rem;
+  transition: all 0.25s;
+}
+
+.btn-outline-custom:hover {
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+  border-color: #fff;
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   STATS STRIP
+============================================================ */
+.stats-strip {
+  background: var(--green-dark);
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.stat-item { display: flex; flex-direction: column; padding: 0.5rem; }
+
+.stat-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: var(--green-accent);
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.65);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-top: 4px;
+}
+
+/* ============================================================
+   SECTION TYPOGRAPHY
+============================================================ */
+.section-tag {
+  display: inline-block;
+  background: var(--green-pale);
+  color: var(--green-main);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  padding: 0.35rem 1rem;
+  border-radius: 50px;
+  border: 1px solid var(--green-accent);
+}
+
+.section-heading {
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+  color: var(--green-dark);
+  line-height: 1.25;
+}
+
+.section-heading-sm {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: var(--green-dark);
+}
+
+.section-body {
+  color: var(--gray-text);
+  font-size: 1.02rem;
+  line-height: 1.85;
+}
+
+/* ============================================================
+   BACKGROUND VARIANTS
+============================================================ */
+.bg-light-green { background: var(--green-pale); }
+
+/* ============================================================
+   IMAGE PLACEHOLDER
+============================================================ */
+.img-placeholder-box {
+  min-height: 300px;
+  background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+  border: 2px dashed var(--green-accent);
+  text-align: center;
+  padding: 2rem;
+}
+
+.placeholder-icon { font-size: 4rem; opacity: 0.45; }
+
+.rounded-custom { border-radius: var(--radius); }
+
+/* ============================================================
+   PROBLEM SECTION
+============================================================ */
+.problem-list {
+  list-style: none;
+  padding: 0;
+}
+
+.problem-list li {
+  padding: 0.5rem 0;
+  font-size: 0.97rem;
+  color: var(--gray-text);
+  border-bottom: 1px solid var(--gray-mid);
+}
+
+.problem-list li:last-child { border-bottom: none; }
+
+/* ============================================================
+   IMPACT CARDS
+============================================================ */
+.impact-card {
+  border-radius: var(--radius) !important;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.impact-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md) !important;
+}
+
+.card-featured {
+  background: var(--green-pale) !important;
+  border: 2px solid var(--green-accent) !important;
+}
+
+.impact-icon-wrap {
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  background: var(--green-pale);
+  display: flex; align-items: center; justify-content: center;
+}
+
+.impact-icon { font-size: 1.8rem; }
+
+.card-title-custom {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  color: var(--green-dark);
+  margin-bottom: 0.6rem;
+}
+
+.card-text-custom {
+  font-size: 0.93rem;
+  color: var(--gray-text);
+  line-height: 1.7;
+}
+
+.impact-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.25rem 0.8rem;
+  border-radius: 50px;
+  margin-top: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge-danger-soft  { background: #fce4e4; color: #c62828; }
+.badge-warning-soft { background: #fff8e1; color: #e65100; }
+.badge-success-soft { background: #e8f5e9; color: #2e7d32; }
+
+/* ============================================================
+   HOW IT WORKS
+============================================================ */
+.how-step { padding: 1.5rem 1rem; }
+
+.step-num {
+  display: inline-flex;
+  align-items: center; justify-content: center;
+  width: 38px; height: 38px;
+  background: var(--green-light);
+  color: #fff;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.step-icon {
+  font-size: 2.2rem;
+  color: var(--green-main);
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.step-title {
+  font-family: 'Playfair Display', serif;
+  color: var(--green-dark);
+  margin-bottom: 0.4rem;
+  font-size: 1rem;
+}
+
+.step-desc {
+  font-size: 0.9rem;
+  color: var(--gray-text);
+}
+
+/* ============================================================
+   INSTRUCTION STRIP (Find Agency page)
+============================================================ */
+.instruction-strip {
+  background: var(--green-pale);
+  border-top: 1px solid var(--gray-mid);
+  border-bottom: 1px solid var(--gray-mid);
+}
+
+.instruction-step { padding: 0.75rem; }
+
+.ins-num {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--green-light);
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+
+/* ============================================================
+   FORM CARD
+============================================================ */
+.form-card { border-radius: var(--radius) !important; }
+
+.form-title {
+  font-size: 1.3rem;
+  color: var(--green-dark);
+}
+
+.form-subtitle { font-size: 0.87rem; color: var(--gray-text); }
+
+.form-label-custom {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 0.4rem;
+}
+
+.input-group-custom { position: relative; }
+
+.input-icon {
+  position: absolute;
+  left: 13px; top: 50%; transform: translateY(-50%);
+  color: var(--green-main);
+  font-size: 0.95rem;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.form-input-custom {
+  padding-left: 2.4rem !important;
+  border: 1.5px solid var(--gray-mid);
+  border-radius: var(--radius-sm) !important;
+  font-size: 0.93rem;
+  color: var(--text-dark);
+  background: var(--gray-light);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-input-custom:focus {
+  border-color: var(--green-light) !important;
+  box-shadow: 0 0 0 3px rgba(76,175,80,0.15) !important;
+  background: #fff;
+  outline: none;
+}
+
+.invalid-msg {
+  display: none;
+  font-size: 0.8rem;
+  color: #d32f2f;
+  margin-top: 4px;
+  padding-left: 4px;
+}
+
+.invalid-msg.show { display: block; }
+
+/* ============================================================
+   RESULTS
+============================================================ */
+.results-placeholder {
+  background: var(--gray-light);
+  border: 2px dashed var(--gray-mid);
+  border-radius: var(--radius);
+}
+
+.search-placeholder-icon {
+  width: 90px; height: 90px;
+  background: var(--green-pale);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2.4rem;
+  color: var(--green-main);
+}
+
+.summary-card { border-radius: var(--radius) !important; background: var(--green-pale) !important; }
+.summary-title { font-size: 0.95rem; color: var(--green-dark); font-weight: 600; }
+
+.summary-item {
+  font-size: 0.87rem;
+  background: #fff;
+  border-radius: var(--radius-sm);
+  padding: 0.5rem 0.75rem;
+}
+
+.summary-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.6px; color: var(--green-main); }
+.summary-value { font-weight: 600; color: var(--text-dark); }
+
+.results-title { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--green-dark); }
+.results-count {
+  background: var(--green-light);
+  color: #fff;
+  font-size: 0.8rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: 50px;
+}
+
+/* ---------- TABLE ---------- */
+.table-custom { font-size: 0.88rem; }
+.table-custom thead { background: var(--green-dark); color: #fff; }
+.table-custom thead th { padding: 0.9rem 1rem; font-weight: 600; border: none; white-space: nowrap; }
+.table-custom tbody tr { transition: background 0.15s; }
+.table-custom tbody tr:hover { background: var(--green-pale); }
+.table-custom tbody td { padding: 0.85rem 1rem; border-bottom: 1px solid var(--gray-mid); vertical-align: middle; }
+
+.alert-success-custom {
+  background: var(--green-pale);
+  border: 1.5px solid var(--green-accent);
+  border-radius: var(--radius-sm);
+  color: var(--green-dark);
+  font-size: 0.9rem;
+  padding: 0.9rem 1.1rem;
+}
+
+/* ============================================================
+   HELPLINE SECTION
+============================================================ */
+
+.helpline-section {
+  background: var(--green-dark);
+}
+
+/* ============================================================
+   AWARENESS PAGE — DANGER CARDS
+============================================================ */
+.danger-card {
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.22s, box-shadow 0.22s;
+}
+
+.danger-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.danger-icon { font-size: 2.4rem; display: block; }
+.danger-title { font-family: 'Playfair Display', serif; color: var(--green-dark); }
+.danger-desc { font-size: 0.9rem; color: var(--gray-text); margin-top: 0.4rem; }
+
+/* ============================================================
+   CYCLE DIAGRAM (CSS version — replace with real image)
+============================================================ */
+.cycle-diagram {
+  position: relative;
+  width: 300px; height: 300px;
+}
+
+.cycle-center {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px; height: 80px;
+  background: var(--green-main);
+  border-radius: 50%;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  color: #fff;
+  font-size: 1.5rem;
+  z-index: 2;
+  box-shadow: 0 4px 16px rgba(46,125,50,0.35);
+}
+
+.cycle-node {
+  position: absolute;
+  width: 72px; height: 72px;
+}
+
+.cycle-node-inner {
+  width: 100%; height: 100%;
+  background: #fff;
+  border: 2.5px solid var(--green-light);
+  border-radius: 50%;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  font-size: 0.58rem;
+  font-weight: 600;
+  text-align: center;
+  color: var(--green-dark);
+  line-height: 1.3;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s;
+}
+
+.cycle-node-inner i { font-size: 1.1rem; color: var(--green-main); margin-bottom: 2px; }
+.cycle-node-inner:hover { transform: scale(1.08); }
+
+/* 5 nodes evenly around a circle of radius 110px */
+.node-1 { top: calc(50% - 36px - 110px); left: calc(50% - 36px); }
+.node-2 { top: calc(50% - 36px - 34px); left: calc(50% - 36px + 105px); }
+.node-3 { top: calc(50% - 36px + 89px); left: calc(50% - 36px + 65px); }
+.node-4 { top: calc(50% - 36px + 89px); left: calc(50% - 36px - 65px); }
+.node-5 { top: calc(50% - 36px - 34px); left: calc(50% - 36px - 105px); }
+
+/* ============================================================
+   COMPOSTING STEPS
+============================================================ */
+.compost-step-num {
+  min-width: 36px; height: 36px;
+  background: var(--green-main);
+  color: #fff;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.compost-step-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  color: var(--green-dark);
+  margin-bottom: 0.3rem;
+}
+
+.compost-step-desc { font-size: 0.9rem; color: var(--gray-text); margin: 0; }
+
+/* ============================================================
+   BENEFITS
+============================================================ */
+.benefit-check { color: var(--green-light); font-size: 1.15rem; flex-shrink: 0; }
+
+/* ============================================================
+   DO'S & DON'TS
+============================================================ */
+.dos-card {
+  background: #f1faf1 !important;
+  border-radius: var(--radius) !important;
+  border-left: 4px solid var(--green-light) !important;
+}
+
+.donts-card {
+  background: #fff5f5 !important;
+  border-radius: var(--radius) !important;
+  border-left: 4px solid #ef5350 !important;
+}
+
+.dos-title, .donts-title { font-family: 'Playfair Display', serif; }
+
+.dos-list { list-style: none; padding: 0; }
+.dos-list li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  font-size: 0.93rem;
+  color: var(--gray-text);
+}
+.dos-list li:last-child { border-bottom: none; }
+
+/* ============================================================
+   FOOTER
+============================================================ */
+.site-footer {
+  background: var(--green-dark);
+  color: rgba(255,255,255,0.8);
+}
+
+.footer-desc { font-size: 0.88rem; color: rgba(255,255,255,0.6); line-height: 1.7; }
+.footer-heading { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1px; color: var(--green-accent); margin-bottom: 0.8rem; }
+.footer-links { list-style: none; padding: 0; }
+.footer-links li { margin-bottom: 0.4rem; }
+.footer-links a { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+.footer-links a:hover { color: var(--green-accent); }
+.footer-social {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 50%;
+  color: rgba(255,255,255,0.7);
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.footer-social:hover { background: var(--green-light); border-color: var(--green-light); color: #fff; }
+.footer-divider { border-color: rgba(255,255,255,0.12); }
+.footer-copy { font-size: 0.82rem; color: rgba(255,255,255,0.45); }
+
+/* ===== Find Agency Page Footer Only ===== */
+.agency-footer {
+  background: linear-gradient(
+    135deg,
+    #0a1628 0%,
+    #0d2137 35%,
+    #1a3a2a 65%,
+    #0f2318 100%
+  ) !important;
+}
+/* ============================================================
+   SCROLL ANIMATION
+============================================================ */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+.bounce-anim { animation: bounce 1.6s ease-in-out infinite; }
+
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+@media (max-width: 768px) {
+  .py-6 { padding-top: 3rem; padding-bottom: 3rem; }
+  .hero-section { min-height: 100vh; }
+  .cycle-diagram { width: 240px; height: 240px; }
+  .node-1 { top: calc(50% - 28px - 85px); left: calc(50% - 28px); }
+  .node-2 { top: calc(50% - 28px - 26px); left: calc(50% - 28px + 82px); }
+  .node-3 { top: calc(50% - 28px + 70px); left: calc(50% - 28px + 50px); }
+  .node-4 { top: calc(50% - 28px + 70px); left: calc(50% - 28px - 50px); }
+  .node-5 { top: calc(50% - 28px - 26px); left: calc(50% - 28px - 82px); }
+  .cycle-node { width: 56px; height: 56px; }
+  .cycle-center { width: 60px; height: 60px; font-size: 1.1rem; }
+}
+/* ============================================================
+   VISITOR DASHBOARD
+============================================================ */
+
+.visitor-dashboard {
+  position: relative;
+  background: url('images/hero-bg.jpg') center/cover no-repeat;
+  overflow: hidden;
+}
+
+.visitor-dashboard::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 0;
+}
+
+.visitor-dashboard .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* --- Stats Cards --- */
+.vd-card {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 16px;
+  backdrop-filter: blur(8px);
+  transition: transform 0.25s, background 0.25s;
+}
+
+.vd-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255,255,255,0.12);
+}
+
+.vd-icon-wrap {
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+}
+
+.vd-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.vd-label {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.65);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-top: 6px;
+}
+
+.vd-live {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.5);
+}
+
+/* --- Chart Cards --- */
+.vd-chart-card {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 16px;
+  backdrop-filter: blur(8px);
+  height: 100%;
+}
+
+.vd-chart-title {
+  color: rgba(255,255,255,0.9);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+/* --- Bar Chart --- */
+.bar-chart-wrap {
+  padding: 0 8px;
+}
+
+.bar-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  height: 140px;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+  padding-bottom: 8px;
+}
+
+.bar-item {
+  flex: 1;
+  border-radius: 6px 6px 0 0;
+  background: linear-gradient(180deg, #81c784, #4caf50);
+  transition: all 0.6s ease;
+  position: relative;
+  min-width: 20px;
+}
+
+.bar-item:hover {
+  background: linear-gradient(180deg, #a5d6a7, #66bb6a);
+}
+
+.bar-item .bar-tooltip {
+  position: absolute;
+  top: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.7);
+  color: #fff;
+  font-size: 0.68rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.bar-item:hover .bar-tooltip {
+  opacity: 1;
+}
+
+.bar-labels {
+  display: flex;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.bar-label {
+  flex: 1;
+  text-align: center;
+  font-size: 0.65rem;
+  color: rgba(255,255,255,0.5);
+  min-width: 20px;
+}
+
+/* --- Pie Chart --- */
+.pie-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.pie-svg circle {
+  transition: stroke-dashoffset 1s ease;
+}
+
+.pie-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pie-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.75);
+}
+
+.pie-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}

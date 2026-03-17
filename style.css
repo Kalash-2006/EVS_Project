@@ -97,9 +97,9 @@ h1, h2, h3, h4, h5 {
   /* ============================================================
      HERO BACKGROUND IMAGE
      To use a real image, replace the gradient below with:
-     background: url('images/hero-bg.jpg') center/cover no-repeat;
+     background: url('hero-bg.jpg') center/cover no-repeat;
   ============================================================ */
-  background:  url('images/hero-bg.jpg') center/cover no-repeat; 
+  background:  url('hero-bg.jpg') center/cover no-repeat; 
   overflow: hidden;
 }
 
@@ -738,7 +738,7 @@ h1, h2, h3, h4, h5 {
 
 .visitor-dashboard {
   position: relative;
-  background: url('images/hero-bg.jpg') center/cover no-repeat;
+  background: url('hero-bg.jpg') center/cover no-repeat;
   overflow: hidden;
 }
 

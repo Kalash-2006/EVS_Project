@@ -344,27 +344,35 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+// Firebase URL
+const FIREBASE_URL = "https://ecodispose-counter-default-rtdb.asia-southeast1.firebasedatabase.app";
+
 async function updateVisitorCount() {
   try {
-    // Total Visitors Count
-    const totalRes = await fetch(
-      "https://api.countapi.xyz/hit/kalash-2006-ecodispose/total"
-    );
-    const totalData = await totalRes.json();
-
-    // Today's Visitors Count
     const today = new Date().toISOString().split("T")[0];
-    const todayRes = await fetch(
-      `https://api.countapi.xyz/hit/kalash-2006-ecodispose/${today}`
-    );
-    const todayData = await todayRes.json();
 
-    // Display
+    // Total Count बढ़ाओ
+    const totalRes = await fetch(`${FIREBASE_URL}/total.json`);
+    const totalVal = await totalRes.json() || 0;
+    await fetch(`${FIREBASE_URL}/total.json`, {
+      method: "PUT",
+      body: JSON.stringify(totalVal + 1)
+    });
+
+    // Today Count बढ़ाओ
+    const todayRes = await fetch(`${FIREBASE_URL}/days/${today}.json`);
+    const todayVal = await todayRes.json() || 0;
+    await fetch(`${FIREBASE_URL}/days/${today}.json`, {
+      method: "PUT",
+      body: JSON.stringify(todayVal + 1)
+    });
+
+    // Display करो
     const totalEl = document.getElementById("totalCount");
     const todayEl = document.getElementById("todayCount");
 
-    if (totalEl) animateCount(totalEl, totalData.value);
-    if (todayEl) animateCount(todayEl, todayData.value);
+    if (totalEl) animateCount(totalEl, totalVal + 1);
+    if (todayEl) animateCount(todayEl, todayVal + 1);
 
   } catch (err) {
     console.log("Counter Error:", err);

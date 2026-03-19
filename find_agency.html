@@ -265,13 +265,15 @@
     <!-- Stats Cards -->
     <div class="row g-4 justify-content-center mb-5">
 
-      <!-- Today -->
+     <!-- Today -->
       <div class="col-6 col-md-3">
         <div class="vd-card text-center p-4">
           <div class="vd-icon-wrap mb-3 mx-auto" style="background:rgba(76,175,80,0.15);">
             <i class="bi bi-sun-fill" style="color:#81c784;"></i>
           </div>
-          <div class="vd-number" id="todayCount">0</div>
+          <div class="vd-number" id="todayCount">
+            <span class="spinner-border spinner-border-sm" style="color:#81c784;"></span>
+          </div>
           <div class="vd-label">Today's Visitors</div>
           <div class="vd-live mt-2">
             <i class="bi bi-circle-fill me-1" style="font-size:0.45rem;color:#4caf50;"></i>Live
@@ -285,7 +287,9 @@
           <div class="vd-icon-wrap mb-3 mx-auto" style="background:rgba(33,150,243,0.15);">
             <i class="bi bi-people-fill" style="color:#64b5f6;"></i>
           </div>
-          <div class="vd-number" id="totalCount">0</div>
+          <div class="vd-number" id="totalCount">
+            <span class="spinner-border spinner-border-sm" style="color:#64b5f6;"></span>
+          </div>
           <div class="vd-label">Total Visitors</div>
           <div class="vd-live mt-2">
             <i class="bi bi-graph-up-arrow me-1" style="color:#64b5f6;"></i>All Time
@@ -299,7 +303,9 @@
           <div class="vd-icon-wrap mb-3 mx-auto" style="background:rgba(255,183,77,0.15);">
             <i class="bi bi-search" style="color:#ffb74d;"></i>
           </div>
-          <div class="vd-number" id="searchCount">0</div>
+          <div class="vd-number" id="searchCount">
+            <span class="spinner-border spinner-border-sm" style="color:#ffb74d;"></span>
+          </div>
           <div class="vd-label">Agency Searches</div>
           <div class="vd-live mt-2">
             <i class="bi bi-arrow-up me-1" style="color:#ffb74d;"></i>Total

@@ -903,3 +903,13 @@ h1, h2, h3, h4, h5 {
   border-radius: 50%;
   flex-shrink: 0;
 }
+/* Mobile Table Scroll */
+@media (max-width: 768px) {
+  .table-custom {
+    min-width: 650px;
+  }
+  .table-responsive {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+}

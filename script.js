@@ -4,6 +4,11 @@
 ============================================================ */
 
 // ============================================================
+// FIREBASE URL
+// ============================================================
+const FIREBASE_URL = "https://ecodispose-counter-default-rtdb.asia-southeast1.firebasedatabase.app";
+
+// ============================================================
 // AGENCY DATABASE — Maharashtra 36 Districts
 // ============================================================
 const agencyData = {
@@ -54,11 +59,9 @@ function searchAgency() {
   const animal   = document.getElementById("animalType").value;
   const district = document.getElementById("district").value;
 
-  // Errors Reset
   ["nameError","phoneError","animalError","districtError"]
     .forEach(id => hideError(id));
 
-  // Validation
   let valid = true;
   if (!name)                             { showError("nameError");     valid = false; }
   if (!phone || !/^\d{10}$/.test(phone)) { showError("phoneError");   valid = false; }
@@ -66,7 +69,6 @@ function searchAgency() {
   if (!district)                         { showError("districtError"); valid = false; }
   if (!valid) return;
 
-  // Loading
   const btn = document.querySelector("button[onclick='searchAgency()']");
   if (btn) {
     btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Searching...';
@@ -78,10 +80,9 @@ function searchAgency() {
       btn.innerHTML = '<i class="bi bi-search me-2"></i>Search Agency';
       btn.disabled  = false;
     }
-
     const agencies = agencyData[district] || [];
+    incrementSearchCount();
     showResults(name, phone, animal, district, agencies);
-
   }, 800);
 }
 
@@ -89,12 +90,9 @@ function searchAgency() {
 // RESULTS SHOW
 // ============================================================
 function showResults(name, phone, animal, district, agencies) {
-
-  // Placeholder hide
   const placeholder = document.getElementById("resultsPlaceholder");
   if (placeholder) placeholder.style.display = "none";
 
-  // Summary
   const summaryCard    = document.getElementById("summaryCard");
   const summaryContent = document.getElementById("summaryContent");
 
@@ -127,11 +125,9 @@ function showResults(name, phone, animal, district, agencies) {
     summaryCard.style.display = "block";
   }
 
-  // District Label
   const districtLabel = document.getElementById("districtLabel");
   if (districtLabel) districtLabel.textContent = district + ", Maharashtra";
 
-  // Table
   const resultsSection  = document.getElementById("resultsSection");
   const agencyCount     = document.getElementById("agencyCount");
   const agencyTableBody = document.getElementById("agencyTableBody");
@@ -183,61 +179,70 @@ function showResults(name, phone, animal, district, agencies) {
 }
 
 // ============================================================
-// VISITOR COUNTER
+// VISITOR COUNTER — Firebase
 // ============================================================
-// ============================================================
-// VISITOR COUNTER + CHARTS
-// ============================================================
-function updateVisitorCount() {
+async function updateVisitorCount() {
+  try {
+    const today = new Date().toISOString().split("T")[0];
 
-  // Total Visitors
-  let total = parseInt(localStorage.getItem("totalVisitors") || "1240");
-  total++;
-  localStorage.setItem("totalVisitors", total);
+    // Total Count
+    const totalRes = await fetch(`${FIREBASE_URL}/total.json`);
+    const totalVal = (await totalRes.json()) || 0;
+    await fetch(`${FIREBASE_URL}/total.json`, {
+      method: "PUT",
+      body: JSON.stringify(totalVal + 1)
+    });
 
-  // Today's Visitors
-  const today     = new Date().toDateString();
-  const savedDate = localStorage.getItem("visitDate");
-  let todayCount  = parseInt(localStorage.getItem("todayVisitors") || "0");
+    // Today Count
+    const todayRes = await fetch(`${FIREBASE_URL}/days/${today}.json`);
+    const todayVal = (await todayRes.json()) || 0;
+    await fetch(`${FIREBASE_URL}/days/${today}.json`, {
+      method: "PUT",
+      body: JSON.stringify(todayVal + 1)
+    });
 
-  if (savedDate !== today) {
-    todayCount = 1;
-    localStorage.setItem("visitDate", today);
-  } else {
-    todayCount++;
+    // Search Count
+    const searchRes = await fetch(`${FIREBASE_URL}/searches.json`);
+    const searchVal = (await searchRes.json()) || 0;
+
+    // Display
+    const totalEl  = document.getElementById("totalCount");
+    const todayEl  = document.getElementById("todayCount");
+    const searchEl = document.getElementById("searchCount");
+
+    if (totalEl)  animateCount(totalEl,  totalVal + 1);
+    if (todayEl)  animateCount(todayEl,  todayVal + 1);
+    if (searchEl) animateCount(searchEl, searchVal);
+
+    // Charts
+    buildBarChart(todayVal + 1);
+    buildPieChart();
+
+  } catch (err) {
+    console.log("Counter Error:", err);
   }
-  localStorage.setItem("todayVisitors", todayCount);
-
-  // Search Count
-  let searchCount = parseInt(localStorage.getItem("searchCount") || "342");
-
-  // Display Numbers
-  const totalEl   = document.getElementById("totalCount");
-  const todayEl   = document.getElementById("todayCount");
-  const searchEl  = document.getElementById("searchCount");
-
-  if (totalEl)  animateCount(totalEl,  total);
-  if (todayEl)  animateCount(todayEl,  todayCount);
-  if (searchEl) animateCount(searchEl, searchCount);
-
-  // Charts
-  buildBarChart();
-  buildPieChart();
 }
 
-// Search होने पर Count बढ़ाओ
-function incrementSearchCount() {
-  let searchCount = parseInt(localStorage.getItem("searchCount") || "342");
-  searchCount++;
-  localStorage.setItem("searchCount", searchCount);
-  const searchEl = document.getElementById("searchCount");
-  if (searchEl) animateCount(searchEl, searchCount);
+// Search Count बढ़ाओ
+async function incrementSearchCount() {
+  try {
+    const searchRes = await fetch(`${FIREBASE_URL}/searches.json`);
+    const searchVal = (await searchRes.json()) || 0;
+    await fetch(`${FIREBASE_URL}/searches.json`, {
+      method: "PUT",
+      body: JSON.stringify(searchVal + 1)
+    });
+    const searchEl = document.getElementById("searchCount");
+    if (searchEl) animateCount(searchEl, searchVal + 1);
+  } catch (err) {
+    console.log("Search Error:", err);
+  }
 }
 
 // ============================================================
 // BAR CHART — Last 7 Days
 // ============================================================
-function buildBarChart() {
+function buildBarChart(todayVal) {
   const barChart  = document.getElementById("barChart");
   const barLabels = document.getElementById("barLabels");
   if (!barChart || !barLabels) return;
@@ -249,22 +254,19 @@ function buildBarChart() {
     reorder.push(days[(today - 6 + i + 7) % 7]);
   }
 
-  // Saved या Random Data
   let saved = JSON.parse(localStorage.getItem("weeklyData") || "null");
   if (!saved) {
     saved = [12, 18, 24, 15, 30, 22, 28];
     localStorage.setItem("weeklyData", JSON.stringify(saved));
   }
 
-  // आज का count update
-  saved[6] = parseInt(localStorage.getItem("todayVisitors") || "1");
+  saved[6] = todayVal || saved[6];
   localStorage.setItem("weeklyData", JSON.stringify(saved));
 
   const maxVal = Math.max(...saved);
 
-  barChart.innerHTML = saved.map((val, i) => `
-    <div class="bar-item"
-      style="height:${(val / maxVal) * 100}%;">
+  barChart.innerHTML = saved.map((val) => `
+    <div class="bar-item" style="height:${(val / maxVal) * 100}%;">
       <div class="bar-tooltip">${val}</div>
     </div>`).join("");
 
@@ -281,18 +283,16 @@ function buildPieChart() {
   if (!pieChart || !pieLegend) return;
 
   const districts = [
-    { name: "Nagpur",   value: 35, color: "#4caf50" },
-    { name: "Pune",     value: 25, color: "#81c784" },
-    { name: "Mumbai",   value: 20, color: "#64b5f6" },
-    { name: "Nashik",   value: 12, color: "#ffb74d" },
-    { name: "Others",   value: 8,  color: "#f48fb1" }
+    { name: "Nagpur",  value: 35, color: "#4caf50" },
+    { name: "Pune",    value: 25, color: "#81c784" },
+    { name: "Mumbai",  value: 20, color: "#64b5f6" },
+    { name: "Nashik",  value: 12, color: "#ffb74d" },
+    { name: "Others",  value: 8,  color: "#f48fb1" }
   ];
 
   const total = districts.reduce((s, d) => s + d.value, 0);
-  const r     = 60;
-  const cx    = 80;
-  const cy    = 80;
-  const circ  = 2 * Math.PI * r;
+  const r = 60, cx = 80, cy = 80;
+  const circ = 2 * Math.PI * r;
 
   let offset = 0;
   const slices = districts.map(d => {
@@ -309,9 +309,7 @@ function buildPieChart() {
         fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="36"/>
       ${slices.map(s => `
         <circle cx="${cx}" cy="${cy}" r="${r}"
-          fill="none"
-          stroke="${s.color}"
-          stroke-width="36"
+          fill="none" stroke="${s.color}" stroke-width="36"
           stroke-dasharray="${s.dash} ${s.gap}"
           stroke-dashoffset="${-s.offset}"
           transform="rotate(-90 ${cx} ${cy})"
@@ -330,6 +328,22 @@ function buildPieChart() {
     </div>`).join("");
 }
 
+// ============================================================
+// ANIMATE COUNT
+// ============================================================
+function animateCount(element, target) {
+  let start   = 0;
+  const step  = target / (1200 / 16);
+  const timer = setInterval(() => {
+    start += step;
+    if (start >= target) {
+      element.textContent = target.toLocaleString();
+      clearInterval(timer);
+    } else {
+      element.textContent = Math.floor(start).toLocaleString();
+    }
+  }, 16);
+}
 
 // ============================================================
 // NAVBAR + PAGE LOAD
@@ -343,41 +357,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (link.getAttribute("href") === path) link.classList.add("active");
   });
 });
-
-// Firebase URL
-const FIREBASE_URL = "https://ecodispose-counter-default-rtdb.asia-southeast1.firebasedatabase.app";
-
-async function updateVisitorCount() {
-  try {
-    const today = new Date().toISOString().split("T")[0];
-
-    // Total Count बढ़ाओ
-    const totalRes = await fetch(`${FIREBASE_URL}/total.json`);
-    const totalVal = await totalRes.json() || 0;
-    await fetch(`${FIREBASE_URL}/total.json`, {
-      method: "PUT",
-      body: JSON.stringify(totalVal + 1)
-    });
-
-    // Today Count बढ़ाओ
-    const todayRes = await fetch(`${FIREBASE_URL}/days/${today}.json`);
-    const todayVal = await todayRes.json() || 0;
-    await fetch(`${FIREBASE_URL}/days/${today}.json`, {
-      method: "PUT",
-      body: JSON.stringify(todayVal + 1)
-    });
-
-    // Display करो
-    const totalEl = document.getElementById("totalCount");
-    const todayEl = document.getElementById("todayCount");
-
-    if (totalEl) animateCount(totalEl, totalVal + 1);
-    if (todayEl) animateCount(todayEl, todayVal + 1);
-
-  } catch (err) {
-    console.log("Counter Error:", err);
-  }
-}
 
 // Navbar Shadow
 window.addEventListener("scroll", () => {

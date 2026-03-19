@@ -344,6 +344,33 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+async function updateVisitorCount() {
+  try {
+    // Total Visitors Count
+    const totalRes = await fetch(
+      "https://api.countapi.xyz/hit/kalash-2006-ecodispose/total"
+    );
+    const totalData = await totalRes.json();
+
+    // Today's Visitors Count
+    const today = new Date().toISOString().split("T")[0];
+    const todayRes = await fetch(
+      `https://api.countapi.xyz/hit/kalash-2006-ecodispose/${today}`
+    );
+    const todayData = await todayRes.json();
+
+    // Display
+    const totalEl = document.getElementById("totalCount");
+    const todayEl = document.getElementById("todayCount");
+
+    if (totalEl) animateCount(totalEl, totalData.value);
+    if (todayEl) animateCount(todayEl, todayData.value);
+
+  } catch (err) {
+    console.log("Counter Error:", err);
+  }
+}
+
 // Navbar Shadow
 window.addEventListener("scroll", () => {
   const nav = document.getElementById("mainNav");
